@@ -1,0 +1,19 @@
+{
+  "model_name": "wdbc-malignancy-clf",
+  "version": 1,
+  "alias": "champion",
+  "run_id": "f27535c007a64aacb0c8c4dd0579b01c",
+  "run_name": "logreg_C0.1",
+  "val_f1": 0.9761904761904762,
+  "baseline_val_f1": 0.9655172413793104,
+  "test_accuracy": 0.9824561403508771,
+  "test_precision": 1.0,
+  "test_recall": 0.9523809523809523,
+  "test_f1": 0.975609756097561,
+  "test_roc_auc": 0.9976851851851852,
+  "checks": {
+    "val_f1 >= baseline (0.9655)": true,
+    "val_recall >= 0.95": true,
+    "test_f1 >= 0.93": true
+  }
+}
