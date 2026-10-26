@@ -1,6 +1,6 @@
-# Pinned, tested with Python 3.10-3.12 (MLflow 2.x line required by the assignment)
+# works on Python 3.9 - 3.12
 mlflow==2.22.0
 scikit-learn==1.6.1
 pandas==2.2.3
-numpy==2.2.4
-matplotlib==3.10.1
+numpy==2.0.2
+matplotlib==3.9.4

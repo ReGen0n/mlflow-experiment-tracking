@@ -33,7 +33,7 @@ and the test set is used only once in `register.py` for the selected model.
 
 ## Setup
 
-Python 3.10 - 3.12
+Python 3.9 - 3.12
 
 ```bash
 python -m venv .venv
