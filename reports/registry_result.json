@@ -2,7 +2,7 @@
   "model_name": "wdbc-malignancy-clf",
   "version": 1,
   "alias": "champion",
-  "run_id": "f27535c007a64aacb0c8c4dd0579b01c",
+  "run_id": "81406673414d41aa83242cb2db629bf7",
   "run_name": "logreg_C0.1",
   "val_f1": 0.9761904761904762,
   "baseline_val_f1": 0.9655172413793104,

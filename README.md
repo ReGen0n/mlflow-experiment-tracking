@@ -87,11 +87,13 @@ Table from `compare.py` (full version in `reports/runs_comparison.csv`):
 | rf_500_d12 | random forest, 500 trees, depth 12 | 0.965 | 0.953 | 0.976 | 0.993 | 0.929 ± 0.027 | 1.000 |
 | rf_200_d6 | random forest, 200 trees, depth 6 | 0.965 | 0.953 | 0.976 | 0.992 | 0.928 ± 0.023 | 0.996 |
 | knn_7_distance | kNN, k=7 | 0.964 | 0.930 | 1.000 | 0.997 | 0.919 ± 0.052 | 1.000 |
-| gb_150_lr0.1 | gradient boosting, 150 trees | 0.953 | 0.953 | 0.953 | 0.991 | 0.956 ± 0.021 | 1.000 |
+| gb_150_lr0.1 | gradient boosting, 150 trees | 0.953 | 0.953 | 0.953 | 0.991 | 0.955 ± 0.032 | 1.000 |
 
 ![comparison](reports/val_f1_comparison.png)
 
-<!-- ![MLflow UI](reports/mlflow_ui.png) -->
+MLflow UI (runs of the experiment with the main metrics):
+
+![MLflow UI](reports/mlflow_ui.png)
 
 **Best model: `logreg_C0.1`** (logistic regression with stronger regularization).
 It has the best validation F1 and also the best CV F1, so it's not just a lucky split.
@@ -112,6 +114,10 @@ The model is registered as **`wdbc-malignancy-clf`, version 1**, with alias **`@
 The version also has tags with val/test F1, git commit and dataset hash. Results are also saved
 in `reports/registry_result.json`.
 
+Output of `python register.py`:
+
+![register output](reports/register_output.png)
+
 Loading the model:
 
 ```python
@@ -131,9 +137,9 @@ If something fails, it gets `challenger` and the old champion stays. Version 1 p
 
 ## Reproducibility
 
-Best run: **`f27535c007a64aacb0c8c4dd0579b01c`** (`logreg_C0.1`)
+Best run: **`81406673414d41aa83242cb2db629bf7`** (`logreg_C0.1`)
 
-- git commit: `ff182dd`, clean tree (`git_commit` and `git_dirty=false` tags in the run)
+- git commit: `aa311f0`, clean tree (`git_commit` and `git_dirty=false` tags in the run)
 - data: UCI WDBC from sklearn, sha256 `3019c221...efbd12`
 - params: `model=logreg, C=0.1, max_iter=1000, seed=42, val_size=0.2, test_size=0.2`
 - versions: `requirements.txt` (the model artifact also has its own `requirements.txt`)
@@ -142,19 +148,19 @@ Get the params of the run:
 
 ```bash
 export MLFLOW_TRACKING_URI=sqlite:///mlflow.db
-mlflow runs describe --run-id f27535c007a64aacb0c8c4dd0579b01c
+mlflow runs describe --run-id 81406673414d41aa83242cb2db629bf7
 ```
 
 Go to the same code version:
 
 ```bash
-git checkout ff182dd
+git checkout aa311f0
 ```
 
 Retrain with params from the run:
 
 ```bash
-python train.py --config-from-run f27535c007a64aacb0c8c4dd0579b01c
+python train.py --config-from-run 81406673414d41aa83242cb2db629bf7
 ```
 
 or the same thing with normal flags:
