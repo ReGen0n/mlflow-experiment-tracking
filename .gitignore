@@ -1,0 +1,21 @@
+# --- secrets: never commit ---
+.env
+.env.*
+*.pem
+*credentials*
+.databrickscfg
+
+# --- MLflow local stores (re-creatable with run_experiments.py) ---
+mlflow.db
+mlruns/
+mlartifacts/
+
+# --- data dumps / Python / IDE ---
+data/raw/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
